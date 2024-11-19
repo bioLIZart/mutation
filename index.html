@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Page</title>
+</head>
+<body style="text-align: center; font-family: Arial, sans-serif;">
+  <h1>Welcome to My Audio Page</h1>
+  <p>This page plays two audio fragments. Click the buttons below to listen!</p>
+
+  <!-- Audio 1 -->
+  <button onclick="document.getElementById('audio1').play()">Play Audio 1</button>
+  <audio id="audio1" src="audio1.m4a" controls style="display: none;"></audio>
+
+  <!-- Audio 2 -->
+  <button onclick="document.getElementById('audio2').play()">Play Audio 2</button>
+  <audio id="audio2" src="audio2.m4a" controls style="display: none;"></audio>
+
+  <p>Scan the QR code below to access this page:</p>
+  <img src="qr-code.png" alt="QR Code" style="width: 200px; height: 200px;"/>
+
+  <footer style="margin-top: 20px;">
+    <p>&copy; 2024 Your Name</p>
+  </footer>
+</body>
+</html>
