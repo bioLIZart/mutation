@@ -3,25 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Audio Page</title>
+  <title>Cyanotype Slams</title>
+  <style>
+    /* General styling */
+    body {
+      background-color: #d8f3dc; /* Light green background */
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: #2d6a4f;
+    }
+
+    p {
+      color: #2d6a4f;
+      font-size: 1.2em;
+    }
+
+    /* Logo styling */
+    .logo {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 100px;
+    }
+
+    /* Button styles */
+    .audio-button {
+      display: inline-block;
+      margin: 20px;
+      cursor: pointer;
+    }
+
+    .audio-button img {
+      width: 200px;
+      height: 200px;
+      border-radius: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .audio-button img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Hidden content area */
+    .content {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .content p {
+      font-size: 1.2em;
+    }
+
+    .back-button {
+      background-color: #2d6a4f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .back-button:hover {
+      background-color: #40916c;
+    }
+  </style>
 </head>
-<body style="text-align: center; font-family: Arial, sans-serif;">
+<body>
+  <!-- Logo -->
+  <img src="logo.png" alt="Logo" class="logo">
+
+  <!-- Main content -->
   <h1>Welcome to My Audio Page</h1>
-  <p>This page plays two audio fragments. Click the buttons below to listen!</p>
+  <p>Click on an image to play the audio and learn more!</p>
 
-  <!-- Audio 1 -->
-  <button onclick="document.getElementById('audio1').play()">Play Audio 1</button>
-  <audio id="audio1" src="audio1.m4a" controls style="display: none;"></audio>
+  <!-- Audio buttons -->
+  <div id="main-screen">
+    <div class="audio-button" onclick="showContent(1)">
+      <img src="button1.jpg" alt="Audio 1">
+    </div>
+    <div class="audio-button" onclick="showContent(2)">
+      <img src="button2.jpg" alt="Audio 2">
+    </div>
+  </div>
 
-  <!-- Audio 2 -->
-  <button onclick="document.getElementById('audio2').play()">Play Audio 2</button>
-  <audio id="audio2" src="audio2.m4a" controls style="display: none;"></audio>
+  <!-- Content areas -->
+  <div id="content1" class="content">
+    <audio src="audio1.mp3" controls></audio>
+    <p>This is more information about Audio 1.</p>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
 
-  <p>Scan the QR code below to access this page:</p>
-  <img src="qr-code.png" alt="QR Code" style="width: 200px; height: 200px;"/>
+  <div id="content2" class="content">
+    <audio src="audio2.mp3" controls></audio>
+    <p>This is more information about Audio 2.</p>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
 
-  <footer style="margin-top: 20px;">
-    <p>&copy; 2024 Your Name</p>
-  </footer>
+  <!-- JavaScript -->
+  <script>
+    function showContent(buttonNumber) {
+      document.getElementById('main-screen').style.display = 'none';
+      document.getElementById(`content${buttonNumber}`).style.display = 'block';
+    }
+
+    function goBack() {
+      document.getElementById('main-screen').style.display = 'block';
+      document.getElementById('content1').style.display = 'none';
+      document.getElementById('content2').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
+
