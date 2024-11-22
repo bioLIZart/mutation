@@ -21,6 +21,9 @@
     p {
       color: #2d6a4f;
       font-size: 1.2em;
+      margin: 0 auto;
+      max-width: 600px; /* Restrict text block width */
+      text-align: justify; /* Nice alignment */
     }
 
     /* Logo styling */
@@ -56,8 +59,15 @@
       margin-top: 30px;
     }
 
+    .content img {
+      width: 200px;
+      height: 200px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
     .content p {
-      font-size: 1.2em;
+      margin-top: 20px;
     }
 
     .back-button {
@@ -81,11 +91,9 @@
   <img src="logo.png" alt="Logo" class="logo">
 
   <!-- Main content -->
-  <h1>Mutation Poetry Slams</h1>
-  <p>The slams are inspired by my recent travels through Asia and just life in general. This is the first time I'm doing something like this so can leave some feedback, nice comments or other things here. Enjoyyyy :))))) </p>
-
-  <!-- Audio buttons -->
+  <h1>BioART Poetry Slams</h1>
   <div id="main-screen">
+    <!-- Audio buttons -->
     <div class="audio-button" onclick="showContent(1)">
       <img src="button1.jpg" alt="Audio 1">
     </div>
@@ -96,30 +104,54 @@
 
   <!-- Content areas -->
   <div id="content1" class="content">
-    <audio src="audio1.m4a" controls></audio>
-    <p>Yurt district Ulaanbaatar, Mongolia - 25/07/2024 </p>
+    <img src="button1.jpg" alt="Audio 1 Image">
+    <audio id="audio1" src="audio1.m4a" controls></audio>
+    <p>Yurt district Ulaanbaatar, Mongolia - 25/07/2024.  
+    This slam is called *"Verweven Leven"* and is mainly about the Mongolian connection with nature. It was inspired by a Mongolian ritual to cleanse a yurt and honor their ancestors that I got to witness. I hope you find some meaning in it.</p>
     <button class="back-button" onclick="goBack()">Back</button>
   </div>
 
   <div id="content2" class="content">
-    <audio src="audio2.m4a" controls></audio>
+    <img src="button2.jpg" alt="Audio 2 Image">
+    <audio id="audio2" src="audio2.m4a" controls></audio>
     <p>Random art gallery - Kazan, Russia - 24/08/2024.</p>
     <button class="back-button" onclick="goBack()">Back</button>
   </div>
 
+  <p>The slams are inspired by my recent travels through Asia and just life in general.  
+  This is the first time I'm doing something like this, so feel free to leave some feedback, nice comments, or anything else here. Enjoyyyy! :))))</p>
+
   <!-- JavaScript -->
   <script>
+    let currentAudio = null;
+
     function showContent(buttonNumber) {
+      // Hide main screen and show selected content
       document.getElementById('main-screen').style.display = 'none';
-      document.getElementById(`content${buttonNumber}`).style.display = 'block';
+      const content = document.getElementById(`content${buttonNumber}`);
+      content.style.display = 'block';
+
+      // Play corresponding audio
+      currentAudio = document.getElementById(`audio${buttonNumber}`);
+      currentAudio.play();
     }
 
     function goBack() {
+      // Stop any playing audio
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+
+      // Hide all content and show main screen
       document.getElementById('main-screen').style.display = 'block';
-      document.getElementById('content1').style.display = 'none';
-      document.getElementById('content2').style.display = 'none';
+      document.querySelectorAll('.content').forEach(content => {
+        content.style.display = 'none';
+      });
+
+      // Reset current audio
+      currentAudio = null;
     }
   </script>
 </body>
 </html>
-
