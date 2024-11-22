@@ -91,7 +91,7 @@
   <img src="logo.png" alt="Logo" class="logo">
 
   <!-- Main content -->
-  <h1>BioART Poetry Slams</h1>
+  <h1 id="main-title">BioART Poetry Slams</h1>
   <div id="main-screen">
     <!-- Audio buttons -->
     <div class="audio-button" onclick="showContent(1)">
@@ -100,34 +100,38 @@
     <div class="audio-button" onclick="showContent(2)">
       <img src="button2.jpg" alt="Audio 2">
     </div>
+    <p id="main-text">The slams are inspired by my recent travels through Asia and just life in general.  
+    This is the first time I'm doing something like this, so feel free to leave some feedback, nice comments, or anything else here. Enjoyyyy! :))))</p>
   </div>
 
   <!-- Content areas -->
   <div id="content1" class="content">
     <img src="button1.jpg" alt="Audio 1 Image">
     <audio id="audio1" src="audio1.m4a" controls></audio>
-    <p>Yurt district Ulaanbaatar, Mongolia - 25/07/2024.  
-    This slam is called *"Verweven Leven"* and is mainly about the Mongolian connection with nature. It was inspired by a Mongolian ritual to cleanse a yurt and honor their ancestors that I got to witness. I hope you find some meaning in it.</p>
+    <p><strong>Yurt district Ulaanbaatar, Mongolia - 25/07/2024.</strong><br>
+This slam is called *"Verweven Leven"* and it’s all about the deep bond between the Mongolian people and the land. Inspired by a ritual I witnessed, where a yurt is cleansed and ancestors are honored, it’s a tribute to the rhythm of nature and the connections we share with those who came before us. I hope it resonates with you in some way.</p>
     <button class="back-button" onclick="goBack()">Back</button>
   </div>
 
   <div id="content2" class="content">
     <img src="button2.jpg" alt="Audio 2 Image">
     <audio id="audio2" src="audio2.m4a" controls></audio>
-    <p>Random art gallery - Kazan, Russia - 24/08/2024.</p>
+    <p><strong>Random art gallery - Kazan, Russia - 24/08/2024.</strong><br>
+On the cyanotype, you’ll find the phrase <em>"Это прощание, да?"</em>, which translates from Russian to <em>"This is goodbye, right?"</em>. It’s also the title of the slam, a reflection on the things I’m ready to say farewell to.</p>
     <button class="back-button" onclick="goBack()">Back</button>
   </div>
-
-  <p>The slams are inspired by my recent travels through Asia and just life in general.  
-  This is the first time I'm doing something like this, so feel free to leave some feedback, nice comments, or anything else here. Enjoyyyy! :))))</p>
 
   <!-- JavaScript -->
   <script>
     let currentAudio = null;
 
     function showContent(buttonNumber) {
-      // Hide main screen and show selected content
+      // Hide main screen content
       document.getElementById('main-screen').style.display = 'none';
+      document.getElementById('main-title').style.display = 'none';
+      document.getElementById('main-text').style.display = 'none';
+
+      // Show the specific content
       const content = document.getElementById(`content${buttonNumber}`);
       content.style.display = 'block';
 
@@ -145,6 +149,9 @@
 
       // Hide all content and show main screen
       document.getElementById('main-screen').style.display = 'block';
+      document.getElementById('main-title').style.display = 'block';
+      document.getElementById('main-text').style.display = 'block';
+
       document.querySelectorAll('.content').forEach(content => {
         content.style.display = 'none';
       });
