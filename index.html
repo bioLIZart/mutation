@@ -27,11 +27,15 @@
     }
 
     /* Logo styling */
+    .logo-container {
+      text-align: center;
+      margin-top: 20px; /* Add space above the logo */
+    }
+
     .logo {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      width: 200px;
+      width: 150px; /* Adjust for smaller screens */
+      height: auto; /* Maintain aspect ratio */
+      position: static; /* Ensure no overlap */
     }
 
     /* Button styles */
@@ -84,6 +88,26 @@
     .back-button:hover {
       background-color: #40916c;
     }
+
+    /* Responsive styles for mobile */
+    @media (max-width: 600px) {
+      .logo {
+        width: 120px; /* Further reduce size for small screens */
+      }
+
+      h1 {
+        font-size: 1.5em; /* Adjust title size */
+      }
+
+      .audio-button img {
+        width: 150px; /* Reduce button size */
+        height: 150px;
+      }
+
+      p {
+        font-size: 1em; /* Adjust text size */
+      }
+    }
   </style>
 </head>
 <body>
@@ -110,8 +134,8 @@
     <img src="button1.jpg" alt="Audio 1 Image">
     <audio id="audio1" src="audio1.m4a" controls></audio>
     <p><strong>Yurt district Ulaanbaatar, Mongolia - 25/07/2024.</strong><br>
-[note 22/11]: the slam is not published yet. Instead you'll hear some mongolian singing for now.<br>
-This slam is called *"Verweven Leven"* and it’s all about the deep bond between the Mongolian people and the land. Inspired by a ritual I witnessed, where a yurt is cleansed and ancestors are honored, it’s a tribute to the rhythm of nature and the connections we share with those who came before us. I hope it resonates with you in some way. </p>
+[note 22/11]: the slam is not published yet. Instead you'll hear some Mongolian singing for now.<br>
+This slam is called *"Verweven Leven"* and it’s all about the deep bond between the Mongolian people and the land. Inspired by a ritual I witnessed, where a yurt is cleansed and ancestors are honored, it’s a tribute to the rhythm of nature and the connections we share with those who came before us. I hope it resonates with you in some way.</p>
     <button class="back-button" onclick="goBack()">Back</button>
   </div>
 
@@ -119,7 +143,7 @@ This slam is called *"Verweven Leven"* and it’s all about the deep bond betwee
     <img src="button2.jpg" alt="Audio 2 Image">
     <audio id="audio2" src="audio2.m4a" controls></audio>
     <p><strong>Random art gallery - Kazan, Russia - 24/08/2024.</strong><br>
-[note 22/11]: the slam is not published yet. Instead you'll hear some mongolian singing for now.<br>
+[note 22/11]: the slam is not published yet. Instead you'll hear some Mongolian singing for now.<br>
 On the cyanotype, you’ll find the phrase <em>"Это прощание, да?"</em>, which translates from Russian to <em>"This is goodbye, right?"</em>. It’s also the title of the slam, a reflection on the things I’m ready to say farewell to.</p>
     <button class="back-button" onclick="goBack()">Back</button>
   </div>
